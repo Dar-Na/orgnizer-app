@@ -1,0 +1,52 @@
+<section class="w-full">
+  <header class="ml-1 mb-2">
+    Day: <strong>{{ dateService.date | async | customDate: 'DD.MM.YYYY' }}</strong>
+    <hr/>
+  </header>
+
+  <main>
+    <ul *ngIf="tasks.length; else noTasks">
+      <li
+        *ngFor="let task of tasks; let i = index;"
+        class="w-full flex justify-between mb-2"
+      >
+        <span class="ml-1">
+          <strong>{{ i + 1}}</strong>
+          {{ task.title }}
+        </span>
+        <button
+          type="Submit"
+          class="px-2 py-2 rounded text-white bg-red-600 right-0"
+          (click)="remove(task)"
+        >
+          Remove
+        </button>
+      </li>
+    </ul>
+    <ng-template #noTasks>
+      <p class="text-center">no tasks yet...</p>
+    </ng-template>
+  </main>
+
+  <footer>
+    <form
+      class="mb-2 mt-2 flex justify-between h-[40px]"
+      (ngSubmit)="submit()"
+      [formGroup]="form"
+    >
+      <input
+        type="text"
+        class="border rounded px-2"
+        placeholder="..."
+        formControlName="title"
+      >
+
+      <button
+        type="Submit"
+        class="px-2 rounded text-white bg-blue-600"
+        [class.disabled]="form.invalid"
+      >Create</button>
+    </form>
+  </footer>
+
+</section>

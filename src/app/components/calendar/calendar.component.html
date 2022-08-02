@@ -1,0 +1,32 @@
+<table
+  class="max-w-full mt-2 mb-2"
+>
+  <thead>
+    <tr>
+      <th>Sun</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wen</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr
+      *ngFor="let week of calendar"
+    >
+      <td
+        *ngFor="let day of week.days"
+        [class.disabled]="day.disabled"
+        [class.selected]="day.selected"
+        [class.active]="day.active"
+        class="text-center items-center"
+        (click)="change(day.value)"
+      >
+        <span>{{ day.value | customDate: 'DD'}}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>

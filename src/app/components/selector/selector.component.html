@@ -1,0 +1,16 @@
+
+<div
+  class="flex justify-center items-center font-bold text-lg mt-2 mb-2"
+>
+  <i (click)="go(-1)">&#11164;</i>
+
+  <span
+    class="mx-2 my-2 w-[200px] text-center"
+  >
+    {{ dataService.date | async | customDate }}
+  </span>
+
+  <i (click)="go(1)">&#11166;</i>
+
+</div>
+
