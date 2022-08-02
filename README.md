@@ -1,5 +1,11 @@
 # OrgnizerApp
 
+TODO add calendar task detection
+TODO make design
+TODO make pages About us, Organizer
+TODO finish the footer
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
 ## Development server
