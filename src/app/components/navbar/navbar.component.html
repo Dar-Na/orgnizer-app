@@ -1,11 +1,16 @@
-<nav
-  class="absolute top-0 left-0 right-0 px-5 h-[50px] flex justify-between items-center text-white bg-gray-700 text-lg"
+<div
+  class="absolute top-0 left-0 right-0 h-[50px] items-center text-white bg-gray-700 text-lg"
 >
-  <h1 class="font-bold">{{ title | titlecase }}</h1>
+  <nav
+    class="flex px-5 mx-auto max-w-6xl h-[50px] justify-between items-center text-white bg-gray-700 text-lg"
+  >
+    <h1 class="font-bold">{{ title | titlecase }}</h1>
 
-  <span>
+    <span>
     <a routerLink="/" class="mr-4">Calendar</a>
     <a routerLink="/about" class="mr-4">About</a>
   </span>
-</nav>
+  </nav>
+</div>
+
 

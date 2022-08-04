@@ -1,17 +1,22 @@
+<div
+  class="max-w-full bg-indigo-400 main"
+>
+  <app-navbar [title]="title" ></app-navbar>
 
-<app-navbar
-  [title]="title"
-></app-navbar>
+  <div class="bg max-w-6xl h-screen bg-amber-50 pr-5 pl-5 pb-5 items-center container mx-auto pt-5 mt-[50px]">
 
-<div class="max-w-5xl justify-between items-center flex container mx-auto pt-5 mt-[50px]">
+    <div class="grid grid-rows-3 grid-flow-col gap-6 mt-7">
+      <div class="row-span-3 col-span-2">
+        <app-selector></app-selector>
+        <app-calendar></app-calendar>
+      </div>
+      <div class="row-span-3 col-span-1 my-auto">
+        <app-organizer></app-organizer>
+      </div>
+    </div>
 
-  <div class="w-2/3">
-    <app-selector></app-selector>
-    <app-calendar></app-calendar>
+    <app-upcoming-events class=""></app-upcoming-events>
 
   </div>
-  <app-organizer></app-organizer>
-
+  <app-footer></app-footer>
 </div>
-
-<app-footer></app-footer>
