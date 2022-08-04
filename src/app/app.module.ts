@@ -11,6 +11,7 @@ import {CustomDatePipe} from "./services/customdate.pipe";
 import { OrganizerComponent } from './components/organizer/organizer.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { UpcomingEventsComponent } from './components/upcoming-events/upcoming-events.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {HttpClientModule} from "@angular/common/http";
     CalendarComponent,
     SelectorComponent,
     CustomDatePipe,
-    OrganizerComponent
+    OrganizerComponent,
+    UpcomingEventsComponent
   ],
   imports: [
     BrowserModule,

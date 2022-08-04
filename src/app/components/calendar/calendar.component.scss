@@ -14,6 +14,15 @@ table {
     font-size: 20px;
   }
 
+  tbody {
+    tr {
+      background-color: rgba(44, 57, 82, 0.38);
+      color: #f8f8f8;
+    }
+  }
+
+
+
   td.selected {
     color: #0066ff;
     background-color: rgba(44, 57, 82, 0.5);
