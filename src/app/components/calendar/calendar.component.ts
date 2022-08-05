@@ -34,9 +34,8 @@ export class CalendarComponent implements OnInit {
   }
 
   generate(now: moment.Moment) {
-    const startDay = now.clone().startOf('month').startOf('week')
-    const endDay = now.clone().endOf('month').endOf('week')
-
+    const startDay = now.clone().startOf('month').startOf('week').add(1, 'day')
+    const endDay = now.clone().endOf('month').endOf('week').add(1, 'day')
     const date = startDay.clone().subtract(1, 'day')
 
     const calendar = []
