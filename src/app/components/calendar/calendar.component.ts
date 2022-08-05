@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataService} from "../../services/data.service";
 import * as moment from "moment";
 import {Task, TaskService} from "../../services/task.service";
@@ -32,7 +32,6 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit(): void {
     this.dateService.date.subscribe(this.generate.bind(this))
-    //console.log(this.prevTd)
   }
 
   generate(now: moment.Moment) {
@@ -51,7 +50,7 @@ export class CalendarComponent implements OnInit {
             const disabled = !now.isSame(value, 'month')
             const selected = now.isSame(value, 'date')
             let tasks: Task[] = []
-            this.taskService.load(value).subscribe(t => {
+            this.taskService.load(value).subscribe( t => {
               if(t.length) {
                 t.forEach(tt => {
                   tasks.push({
@@ -61,6 +60,7 @@ export class CalendarComponent implements OnInit {
                 })
               }
             })
+
             return {
               value, active, disabled, selected, tasks
             }
@@ -85,4 +85,5 @@ export class CalendarComponent implements OnInit {
     // })
     // console.log('changed!')
   }
+
 }

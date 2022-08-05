@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataService} from "../../services/data.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Task, TaskService} from "../../services/task.service";
@@ -43,6 +43,7 @@ export class OrganizerComponent implements OnInit {
     }, error => console.log(error))
 
     this.dateService.changeDate(this.dateService.dateOrg.value, true)
+    this.ngOnInit()
   }
 
   remove(task: Task) {
@@ -51,6 +52,7 @@ export class OrganizerComponent implements OnInit {
     }, error => console.log(error))
 
     this.dateService.changeDate(this.dateService.dateOrg.value, true)
+    this.ngOnInit()
   }
 
 }
