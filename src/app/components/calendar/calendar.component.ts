@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from "../../services/data.service";
 import * as moment from "moment";
+import {Task, TaskService} from "../../services/task.service";
 
 interface Day {
   value: moment.Moment
   active: boolean
   disabled: boolean
   selected: boolean
+  tasks: Task[]
 }
 
 interface Week {
@@ -22,7 +24,10 @@ export class CalendarComponent implements OnInit {
 
   calendar: Week[]
 
-  constructor(private dateService: DataService) { }
+  constructor(
+    private dateService: DataService,
+    private taskService: TaskService
+  ) { }
 
   ngOnInit(): void {
     this.dateService.date.subscribe(this.generate.bind(this))
@@ -46,8 +51,22 @@ export class CalendarComponent implements OnInit {
             const disabled = !now.isSame(value, 'month')
             const selected = now.isSame(value, 'date')
 
+            let tasks: Task[] = []
+            this.taskService.load(value).subscribe(t => {
+              if(t.length) {
+                t.forEach(tt => {
+                  let title = tt.title
+                  let date = tt.date
+                  let task : Task = {
+                    title,
+                    date
+                  }
+                  tasks.push(task)
+                })
+              }
+            })
             return {
-              value, active, disabled, selected
+              value, active, disabled, selected, tasks
             }
           })
       })
