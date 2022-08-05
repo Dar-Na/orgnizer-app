@@ -11,7 +11,6 @@ table {
   tr, td {
     border: 1px solid #000;
     padding: 0.5rem 1rem;
-    font-size: 20px;
   }
 
   tbody {
@@ -56,8 +55,27 @@ table {
     &.selected.active {
       color: #f8f8f8;
     }
+  }
 
+  .bookmark {
+    background-image: url("../../assets/bookmark.png");
+    background-repeat: no-repeat;
+  }
 
+  @media only screen and (max-width: 400px)  {
+    .bookmark {
+      background-size: 1rem;
+      width: 3vw;
+      height: 2vh;
+    }
+  }
+
+  @media only screen and (min-width: 401px)  {
+    .bookmark {
+      background-size: 1.5rem;
+      width: 5vw;
+      height: 6vh;
+    }
   }
 
 }

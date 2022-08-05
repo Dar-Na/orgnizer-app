@@ -2,7 +2,14 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    screens: {
+      'phone': '0px',
+      // => @media (min-width: 0px) { ... }
+
+      'else': '400px',
+      // => @media (min-width: 400px) { ... }
+
+    },
   },
   plugins: [],
 }
