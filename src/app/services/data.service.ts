@@ -16,14 +16,16 @@ export class DataService {
     this.dateOrg.next(value)
   }
 
-  changeDate(date: moment.Moment, isDisabled: boolean) {
+  changeDate(date: moment.Moment, isActive: boolean = false) {
     const value = this.dateOrg.value.set({
       date: date.date(),
       month: date.month()
     })
-    if (isDisabled) {
+    if (isActive) {
       this.date.next(value)
     }
     this.dateOrg.next(value)
   }
+
+
 }
