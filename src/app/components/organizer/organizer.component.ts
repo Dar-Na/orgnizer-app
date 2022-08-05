@@ -43,7 +43,6 @@ export class OrganizerComponent implements OnInit {
     }, error => console.log(error))
 
     this.dateService.changeDate(this.dateService.dateOrg.value, true)
-    this.ngOnInit()
   }
 
   remove(task: Task) {
@@ -52,7 +51,6 @@ export class OrganizerComponent implements OnInit {
     }, error => console.log(error))
 
     this.dateService.changeDate(this.dateService.dateOrg.value, true)
-    this.ngOnInit()
   }
 
 }
