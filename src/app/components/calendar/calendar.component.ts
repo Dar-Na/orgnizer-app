@@ -39,7 +39,6 @@ export class CalendarComponent implements OnInit {
     const date = startDay.clone().subtract(1, 'day')
 
     const calendar = []
-
     while (date.isBefore(endDay, 'day')) {
       calendar.push({
         days: Array(7)
@@ -49,18 +48,14 @@ export class CalendarComponent implements OnInit {
             const active = moment().isSame(value, 'date')
             const disabled = !now.isSame(value, 'month')
             const selected = now.isSame(value, 'date')
-
             let tasks: Task[] = []
             this.taskService.load(value).subscribe(t => {
               if(t.length) {
                 t.forEach(tt => {
-                  let title = tt.title
-                  let date = tt.date
-                  let task : Task = {
-                    title,
-                    date
-                  }
-                  tasks.push(task)
+                  tasks.push({
+                    title: tt.title,
+                    date: tt.date
+                  })
                 })
               }
             })
@@ -70,7 +65,6 @@ export class CalendarComponent implements OnInit {
           })
       })
     }
-
     this.calendar = calendar
   }
 
