@@ -1,11 +1,5 @@
 # OrgnizerApp
 
-<b>[TODO](https://github.com/Dar-Na/orgnizer-app) add calendar task detection <br/>
-[TODO](https://github.com/Dar-Na/orgnizer-app) make design<br/>
-[TODO](https://github.com/Dar-Na/orgnizer-app) make pages About us, Organizer<br/>
-[TODO](https://github.com/Dar-Na/orgnizer-app) finish the footer<br/>
-</b>
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
 ## Development server
