@@ -19,11 +19,12 @@
     >
       <td
         *ngFor="let day of week.days"
+        [id]="day.value"
         [class.disabled]="day.disabled"
         [class.selected]="day.selected"
         [class.active]="day.active"
         class="text-center relative items-center"
-        (click)="change(day.value)"
+        (click)="change(day.value, day.disabled)"
       >
         <span
           *ngIf="day.tasks.length"

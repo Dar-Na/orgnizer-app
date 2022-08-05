@@ -23,6 +23,7 @@ interface Week {
 export class CalendarComponent implements OnInit {
 
   calendar: Week[]
+  td = document.getElementsByClassName("selected");
 
   constructor(
     private dateService: DataService,
@@ -31,6 +32,7 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit(): void {
     this.dateService.date.subscribe(this.generate.bind(this))
+    //console.log(this.prevTd)
   }
 
   generate(now: moment.Moment) {
@@ -68,8 +70,14 @@ export class CalendarComponent implements OnInit {
     this.calendar = calendar
   }
 
-  change(day: moment.Moment) {
-    this.dateService.changeDate(day)
+  change(day: moment.Moment, isDisabled = false) {
+    this.td[0].classList.remove('selected')
+    let tmp = document.getElementById(String(day))
+    // @ts-ignore
+    tmp.classList.add('selected')
+    this.td = document.getElementsByClassName("selected");
+
+    this.dateService.changeDate(day, isDisabled)
     // this.calendar.map(w => {
     //   w.days.map(d => {
     //     d.selected = day.isSame(d.value, 'day') && day.isSame(d.value, 'month')

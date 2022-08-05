@@ -20,7 +20,7 @@ export class OrganizerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.dateService.date.pipe(
+    this.dateService.dateOrg.pipe(
       switchMap(value => this.tasksService.load(value))
     ).subscribe(tasks => this.tasks = tasks)
 
@@ -34,19 +34,23 @@ export class OrganizerComponent implements OnInit {
 
     const task: Task = {
       title,
-      date: this.dateService.date.value.format('DD-MM-YYYY')
+      date: this.dateService.dateOrg.value.format('DD-MM-YYYY')
     }
 
     this.tasksService.create(task).subscribe(task => {
       this.tasks.push(task)
       this.form.reset()
     }, error => console.log(error))
+
+    this.dateService.changeDate(this.dateService.dateOrg.value, true)
   }
 
   remove(task: Task) {
     this.tasksService.remove(task).subscribe(() => {
       this.tasks = this.tasks.filter(t => t.id !== task.id)
     }, error => console.log(error))
+
+    this.dateService.changeDate(this.dateService.dateOrg.value, true)
   }
 
 }
