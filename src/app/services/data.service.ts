@@ -21,10 +21,12 @@ export class DataService {
       date: date.date(),
       month: date.month()
     })
+
     if (isActive) {
-      this.changeDate(date, !isActive)
+      this.changeDate(date, false)
       this.date.next(value)
     }
+
     this.dateOrg.next(value)
   }
 

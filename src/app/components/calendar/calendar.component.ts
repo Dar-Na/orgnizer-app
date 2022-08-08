@@ -8,7 +8,8 @@ interface Day {
   active: boolean
   disabled: boolean
   selected: boolean
-  tasks: Task[]
+  //isTask: boolean
+  tasks: Task []
 }
 
 interface Week {
@@ -56,10 +57,7 @@ export class CalendarComponent implements OnInit {
                   tasks.push({
                     title: tt.title,
                     date: tt.date
-                  })
-                })
-              }
-            })
+                  })})}})
 
             return {
               value, active, disabled, selected, tasks
@@ -68,7 +66,20 @@ export class CalendarComponent implements OnInit {
       })
     }
     this.calendar = calendar
+    // this.tasksUpdate()
   }
+
+  // tasksUpdate() {
+  //   this.taskService.getAll().subscribe(data => {
+  //     this.calendar.forEach(week => {
+  //       for (const day of Object.entries(week)) {
+  //         day[1].forEach((isT: any) => {
+  //           for (const [_, arr] of Object.entries(data)) {
+  //             for (const [_, values] of Object.entries(arr)) {
+  //               if (String(isT.value.format('DD-MM-YYYY')) === String(values.date)) {
+  //                 isT.isTask = true
+  //               }}}})}})})
+  // }
 
   change(day: moment.Moment, isDisabled = false) {
     this.td[0].classList.remove('selected')
@@ -78,12 +89,6 @@ export class CalendarComponent implements OnInit {
     this.td = document.getElementsByClassName("selected");
 
     this.dateService.changeDate(day, isDisabled)
-    // this.calendar.map(w => {
-    //   w.days.map(d => {
-    //     d.selected = day.isSame(d.value, 'day') && day.isSame(d.value, 'month')
-    //   })
-    // })
-    // console.log('changed!')
   }
 
 }

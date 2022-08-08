@@ -22,6 +22,10 @@ export class TaskService {
   constructor(private http: HttpClient) {
   }
 
+  getAll(): Observable<Task[]> {
+    return this.http.get<Task[]>(`${TaskService.url}.json`)
+  }
+
   load(date: moment.Moment): Observable<Task[]> {
     return this.http
       .get<Task[]>(`${TaskService.url}/${date.format('DD-MM-YYYY')}.json`)
