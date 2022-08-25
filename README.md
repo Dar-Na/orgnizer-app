@@ -1,5 +1,11 @@
 # OrgnizerApp
 
+# this is what the project looks like at the moment
+# tak wygląda obecnie projekt
+
+![Organizer page](https://github.com/Dar-Na/orgnizer-app/blob/master/example/mainPage.png)
+![Contact page](https://github.com/Dar-Na/orgnizer-app/blob/master/example/contactPage.png)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
 ## Development server
